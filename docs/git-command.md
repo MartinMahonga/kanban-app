@@ -1,7 +1,5 @@
 Cette page présente **toutes les commandes Git nécessaires**, à l'organisation et à la réalisation du projet
 
-[[https://youtu.be/2-Lwq8I0T_4?si=f2KJAwxGJiMUj8le]]
-
 ---
 
 # Initialisation du dépôt
