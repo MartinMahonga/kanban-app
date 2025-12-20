@@ -1,6 +1,6 @@
 # Application de Gestion de Projets & Tâches Kanban
 
-<div style="display: flex; align-items: center; gap: 8px;">
+<div style="display: flex; justify-content: "center"; align-items: "center"; gap: 8px;">
   <img src="./src/assets/icon.png" width="150px">
   <h1 style="font-size: 96px;">Ways</h1>
 </div>
