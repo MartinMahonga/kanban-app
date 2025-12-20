@@ -1,5 +1,10 @@
 # Application de Gestion de Projets & Tâches Kanban
 
+<div style="display: flex; align-items: center; gap: 8px;">
+  <img src="./src/assets/icon.png" width="150px">
+  <h1 style="font-size: 96px;">Ways</h1>
+</div>
+
 ## Contexte académique
 
 Ce projet est réalisé dans le cadre d’un **projet scolaire**. Il consiste à développer le **frontend en React** d’une application de **gestion de projets et de tâches** de type **Kanban**, en consommant une **API REST développée avec Laravel** et une base de données **SQLite**.
@@ -206,6 +211,12 @@ feature/ui
 
 - Node.js ≥ 18
 - npm ou pnpm
+
+### Clone repository
+
+```bash
+git clone https://github.com/MartinMahonga/kanban-app.git
+```
 
 ### Installation
 
