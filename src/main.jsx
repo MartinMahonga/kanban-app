@@ -8,13 +8,12 @@ import { AuthProvider } from './contexts/AuthContext.jsx'
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+
+  <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </AuthProvider>
+      <AuthProvider>
+          <App />
+      </AuthProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </QueryClientProvider>
 )

@@ -35,7 +35,7 @@ export const Register = () => {
     const errs = {};
     if (!name || name.trim().length < 2) errs.name = "Le nom est requis (2 caractères minimum)";
     if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) errs.email = "Email invalide";
-    if (!password || password.length < 6) errs.password = "Le mot de passe doit contenir au moins 6 caractères";
+    if (!password || password.length < 8) errs.password = "Le mot de passe doit contenir au moins 8 caractères";
     return Object.keys(errs).length ? errs : null;
   };
 

@@ -11,7 +11,7 @@ function AuthProvider({ children }) {
   const [notification, setNotification] = useState(null);
 
   const parseApiError = (err) => {
-    const res = err?.response?.data;
+    const res = err?.res?.data;
     if (!res) {
       return { message: err.message || "Erreur inconnue" };
     }
@@ -21,12 +21,12 @@ function AuthProvider({ children }) {
       return { message: res.message || "Erreur de validation", fields: res.errors };
     }
 
-    // Generic API response with message
+    // Generic API res with message
     if (res.message) {
       return { message: res.message, data: res };
     }
 
-    // If response is a plain string or other shape
+    // If res is a plain string or other shape
     if (typeof res === "string") {
       return { message: res };
     }
@@ -38,6 +38,7 @@ function AuthProvider({ children }) {
   const login = async (email, password) => {
     setError(null);
     setNotification(null);
+
     try {
       const reponse = await loginApi({ email, password });
       const { token, user } = reponse.data;
@@ -48,7 +49,9 @@ function AuthProvider({ children }) {
 
       setNotification("Connexion réussie");
       return { success: true };
+
     } catch (err) {
+
       const parsed = parseApiError(err);
       setError(parsed);
       return { success: false, error: parsed };
@@ -59,9 +62,10 @@ function AuthProvider({ children }) {
   const register = async (name, email, password, password_confirmation) => {
     setError(null);
     setNotification(null);
+
     try {
-      const response = await registerApi({ name, email, password, password_confirmation });
-      const { token, user } = response.data;
+      const res = await registerApi({ name, email, password, password_confirmation });
+      const { token, user } = res.data;
 
       localStorage.setItem("token", token);
       setToken(token);
@@ -69,7 +73,9 @@ function AuthProvider({ children }) {
 
       setNotification("Compte créé avec succès");
       return { success: true };
+
     } catch (err) {
+
       const parsed = parseApiError(err);
       setError(parsed);
       return { success: false, error: parsed };
