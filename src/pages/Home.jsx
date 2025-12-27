@@ -1,6 +1,12 @@
+import Header from '../components/langing-page/Header'
+import Footer from '../components/langing-page/Footer';
+
 const Home = () => {
   return (
-    <h1 className="text-3xl">Home</h1>
+    <div>
+      <Header/>
+      <Footer/>
+    </div>
   )
 }
 
