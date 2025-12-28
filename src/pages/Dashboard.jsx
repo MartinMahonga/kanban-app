@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <Layout>
       <div className="max-w-7xl mx-auto px-6 py-4">
-        {/* Bouton "Create Project" aligné à droite comme sur le screen */}
+        {/* Bouton "Create Project" */}
         {!isLoading && projects?.data?.length === 0 && (
           <div className="
             /* Sur Mobile : Fixé en bas à droite */
