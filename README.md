@@ -2,7 +2,7 @@
 
 <div style="display: flex; justify-content: "center"; align-items: "center"; gap: 8px;">
   <img src="./src/assets/icon.png" width="150px">
-  <h1 style="font-size: 96px;">Ways</h1>
+  <h1 style="font-size: 96px;">Rudix</h1>
 </div>
 
 ## Contexte académique

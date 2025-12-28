@@ -26,6 +26,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  console.log(error);
+
   // Redirection si déjà connecté
   useEffect(() => {
     if (isAuthenticated) navigate("/dashboard", { replace: true });
@@ -83,8 +85,14 @@ const Login = () => {
           {/* Alertes d'erreurs et notifications */}
           {error && (
             <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-lg text-red-700 text-sm animate-in fade-in slide-in-from-top-2">
-              <p className="font-bold">Une erreur est survenue</p>
-              <p>{error.message || String(error)}</p>
+              {
+                error.message === 'Request failed with status code 422' ? <p className="font-bold">Email ou mot de passe incorrect</p> 
+                : 
+                <>
+                  <p className="font-bold">Une erreur est survenue</p>
+                  <p>{error.message || String(error)}</p>
+                </>
+              }
             </div>
           )}
 
