@@ -46,7 +46,7 @@ const Sidebar = () => {
               );
             })}
           </nav>
-          <button onClick={handleLogout} className="group flex items-center gap-3 px-3 py-3 rounded-xl bg-gray-100 hover:bg-black hover:text-white transition-all">
+          <button onClick={handleLogout} className="group flex cursor-pointer items-center gap-3 px-3 py-3 rounded-xl bg-gray-100 hover:bg-black hover:text-white transition-all">
             <LogOut size={22} />
             <span className="text-sm font-semibold">Se déconnecter</span>
           </button>
