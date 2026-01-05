@@ -1,9 +1,10 @@
+import { ProjectRow } from "../components/dashboard/project/ProjectRow";
 import { useProjects } from "../hooks/useProject";
-import Layout from "../layout";
+import Layout from "@/layout";
 import { ProjectSkeleton, EmptyState, Button } from "@/components/ui";
 import { Plus } from "lucide-react";
 
-const Dashboard = () => {
+const ProjectDashboard = () => {
   const { projects, isLoading, isError } = useProjects();
 
   // Gestion des erreurs
@@ -15,6 +16,13 @@ const Dashboard = () => {
       </div>
     </Layout>
   );
+
+  const handleDelete = (id) => {
+  if(window.confirm("Voulez-vous vraiment supprimer ce projet ?")) {
+    // Appel API ici
+    console.log("Suppression du projet", id);
+  }
+  };
 
   return (
     <Layout>
@@ -29,12 +37,12 @@ const Dashboard = () => {
             md:relative md:bottom-0 md:right-0 md:flex md:justify-end md:mb-10 md:z-auto
           ">
             <Button
-              variant="primary"
+              variant="action"
             >
               <Plus
                 className="w-8 h-8 md:w-[22px] md:h-[22px]" 
               />
-              <span className="hidden md:inline">Create project</span>
+              <span className="hidden md:inline">Créer un project</span>
             </Button>
           </div>
         )}
@@ -49,7 +57,7 @@ const Dashboard = () => {
             <EmptyState />
           ) : (
             <div>
-              <div className="flex justify-end mb-10">
+              <div className="flex justify-end mb-4">
                 <div className="
                   /* Sur Mobile : Fixé en bas à droite */
                   fixed bottom-24 right-4 z-50 
@@ -58,17 +66,28 @@ const Dashboard = () => {
                   md:relative md:bottom-0 md:right-0 md:flex md:justify-end md:mb-10 md:z-auto
                 ">
                   <Button
-                    variant="primary"
+                    variant="action"
                   >
                     <Plus
                       className="w-8 h-8 md:w-[22px] md:h-[22px]" 
                     />
-                    <span className="hidden md:inline">Create project</span>
+                    <span className="hidden md:inline">Créer un project</span>
                   </Button>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
                 {/** Affichage des projets */}
+                {/* Table Header */}
+                <div className="md:grid grid-cols-[1fr_1fr_1fr_1fr_40px] px-4 mb-2 text-xs font-medium text-gray-500 uppercase tracking-wider hidden">
+                  <span>Projet</span>
+                  <span className="text-center">Progression</span>
+                  <span className="text-center">Membre</span>
+                  <span className="text-center">Date de création</span>
+                  <span></span>
+                </div>
+                <div className="space-y-1">
+                  {projects.data.map(p => <ProjectRow key={p.id} project={p} onEdit={(p) => console.log("Editer", p)}onDelete={handleDelete}/>)}
+                </div>
               </div>
             </div>
           )}
@@ -78,4 +97,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ProjectDashboard;

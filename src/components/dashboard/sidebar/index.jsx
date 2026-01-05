@@ -38,17 +38,17 @@ const Sidebar = () => {
               const Icon = link.icon;
               return (
                 <Link key={link.title} to={link.path}
-                  className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${isActive ? 'bg-white shadow-[0.5px_0.5px_1px_rgba(0,0,0,0.25),-0.5px_-0.5px_1px_rgba(0,0,0,0.25)]' : 'text-gray-500 hover:bg-gray-50'}`}
+                  className={`group flex items-center gap-3 px-2 py-2 rounded-xl transition-all ${isActive ? 'bg-[#f1f5f9] text-[#5e35b1]' : 'text-gray-500 hover:bg-[#f1f5f9] hover:text-[#5e35b1]'}`}
                 >
-                  <Icon size={22} className={isActive ? 'text-[#633BBC]' : 'group-hover:text-gray-900'} />
-                  <span className="text-sm font-medium">{link.title}</span>
+                  <Icon size={18} className={isActive ? 'text-[#5e35b1]' : 'group-hover:text-[#5e35b1]'} />
+                  <span className="text-sm">{link.title}</span>
                 </Link>
               );
             })}
           </nav>
-          <button onClick={handleLogout} className="group flex cursor-pointer items-center gap-3 px-3 py-3 rounded-xl bg-gray-100 hover:bg-black hover:text-white transition-all">
+          <button onClick={handleLogout} className="group flex cursor-pointer items-center gap-3 px-3 py-3 rounded-xl bg-[#fff5f5] hover:bg-[#e53e3e] text-[#e53e3e] hover:text-[#fff5f5] transition-all">
             <LogOut size={22} />
-            <span className="text-sm font-semibold">Se déconnecter</span>
+            <span className="text-sm font-bold">Se déconnecter</span>
           </button>
         </div>
       </aside>
@@ -60,8 +60,8 @@ const Sidebar = () => {
           const Icon = link.icon;
           return (
             <Link key={link.title} to={link.path} className="flex flex-col items-center justify-center gap-1 w-full h-full">
-              <Icon size={20} className={isActive ? 'text-[#633BBC]' : 'text-gray-500'} />
-              <span className={`text-[10px] font-medium ${isActive ? 'text-[#633BBC]' : 'text-gray-500'}`}>
+              <Icon size={20} className={isActive ? 'text-[#5e35b1]' : 'text-gray-500'} />
+              <span className={`text-[10px] ${isActive ? 'text-[#5e35b1]' : 'text-gray-500'}`}>
                 {link.title}
               </span>
             </Link>
@@ -70,7 +70,7 @@ const Sidebar = () => {
         {/* Bouton Logout simplifié sur mobile */}
         <button onClick={handleLogout} className="flex flex-col items-center justify-center gap-1 w-full h-full text-gray-500">
           <LogOut size={20} />
-          <span className="text-[10px] font-medium">Quitter</span>
+          <span className="text-[10px]">Quitter</span>
         </button>
       </nav>
     </>

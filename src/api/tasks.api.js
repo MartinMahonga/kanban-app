@@ -1,9 +1,9 @@
 import api from "./axios";
 
-export const getTasks = () => {
-  return api.get("/api/groupe-5/projets/1/taches");
+export const getTasks = (projectId) => {
+  return api.get(`/api/groupe-5/projets/${projectId}/taches`);
 }
 
-export const createTask = (data) => {
-  return api.post("/api/groupe-5/projets/1/taches", data);
+export const createTask = (projectId, data) => {
+  return api.post(`/api/groupe-5/projets/${projectId}/taches`, data);
 } 
