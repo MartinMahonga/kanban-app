@@ -4,7 +4,8 @@ import '@/index.css'
 import Register from '@/pages/Register';
 import Login from '@/pages/Login';
 import Home from '@/pages/Home';
-import Dashboard from '@/pages/Dashboard';
+import ProjectDashboard from '@/pages/ProjectDashboard';
+import Stats from '@/pages/Stats';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -46,7 +47,15 @@ function AppRouter() {
           path='/dashboard/projets'
           element={
             <ProtectedRoute>
-              <Dashboard/>
+              <ProjectDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/dashboard/stats'
+          element={
+            <ProtectedRoute>
+              <Stats />
             </ProtectedRoute>
           }
         />

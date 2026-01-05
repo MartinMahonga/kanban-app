@@ -1,5 +1,5 @@
 import api from "./axios";
 
-export const assignTask = (userId) => {
-  return api.post("/api/groupe-5/taches/1/assign", userId)
+export const assignTask = (userId, taskId) => {
+  return api.post(`/api/groupe-5/taches/${taskId}/assign`, userId)
 }

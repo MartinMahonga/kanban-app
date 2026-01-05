@@ -1,5 +1,5 @@
 import api from "./axios";
 
-export const changeStatus = (status) => {
-  return api.put("/api/groupe-5/taches/1/status", status)
+export const changeStatus = (taskId, status) => {
+  return api.put(`/api/groupe-5/taches/${taskId}/status`, status)
 }

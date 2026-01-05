@@ -10,7 +10,7 @@ const footerLinks = {
   ],
   support: [
     { name: "Team", href: "/" },
-    { name: "Repository", href: "/" },
+    { name: "Repository", href: "https://github.com/MartinMahonga/kanban-app.git" },
     { name: "Contact", href: "/" },
   ]
 };
@@ -57,7 +57,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-500 hover:text-[#633BBC] transition-colors">
+                  <a href={link.href} target="_blank" className="text-gray-500 hover:text-[#633BBC] transition-colors">
                     {link.name}
                   </a>
                 </li>

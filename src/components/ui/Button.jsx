@@ -1,6 +1,7 @@
 export const Button = ({ children, variant = 'primary', isLoading, ...props }) => {
   const variants = {
     primary: "bg-black text-white hover:bg-gray-800 shadow-[0.5px_0.5px_1px_rgba(0,0,0,0.25)]",
+    action: "bg-[#5e35b1] text-white hover:bg-[#3f198b] shadow-[0.5px_0.5px_1px_rgba(0,0,0,0.25)]",
     secondary: "bg-white border border-gray-200 text-gray-900 hover:bg-gray-50",
     danger: "bg-red-600 text-white hover:bg-red-700",
     ghost: "text-gray-500 hover:bg-gray-100"

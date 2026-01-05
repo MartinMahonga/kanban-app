@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Import des icônes
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import logo from '@/assets/icon.png';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className='relative flex justify-between md:justify-evenly items-center px-6 py-4 bg-white'>
+    <nav className='sticky top-0 z-50 w-full flex justify-between md:justify-around items-center px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-100'>
       {/* LOGO */}
       <div className='flex flex-1 items-center text-2xl md:text-3xl font-medium gap-2'>
         <img src={logo} alt="logo" className='h-8' />
@@ -22,9 +23,9 @@ export const Navbar = () => {
 
       {/* LIENS (Desktop) */}
       <div className='hidden md:flex gap-8 items-center text-sm lg:text-base'>
-        <a href="/" className='hover:text-gray-500 transition-colors'>Accueil</a>
-        <a href="/" className='hover:text-gray-500 transition-colors'>Features</a>
-        <a href="/" className='hover:text-gray-500 transition-colors'>A propos</a>
+        <Link to="/" className='hover:text-[#633BBC] transition-colors'>Accueil</Link>
+        <Link to="/" className='hover:text-[#633BBC] transition-colors'>Features</Link>
+        <Link to="/" className='hover:text-[#633BBC] transition-colors'>A propos</Link>
       </div>
 
       {/* BOUTONS (Desktop) */}
@@ -43,14 +44,14 @@ export const Navbar = () => {
         ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}
       `}>
         <div className='flex flex-col gap-4 text-lg font-medium'>
-          <a href="/" onClick={() => setIsOpen(false)}>Accueil</a>
-          <a href="/" onClick={() => setIsOpen(false)}>Features</a>
-          <a href="/" onClick={() => setIsOpen(false)}>A propos</a>
+          <Link to="/" onClick={() => setIsOpen(false)}>Accueil</Link>
+          <Link to="/" onClick={() => setIsOpen(false)}>Features</Link>
+          <Link to="/" onClick={() => setIsOpen(false)}>A propos</Link>
         </div>
         <hr className='border-gray-100' />
         <div className='flex flex-col gap-3'>
-          <a href='/login' className='text-center border border-gray-200 rounded-md p-3'>Se connecter</a>
-          <a href='/register' className='text-center text-white bg-black rounded-md p-3'>S'inscrire</a>
+          <Link to='/login' className='text-center border border-gray-200 rounded-md p-3'>Se connecter</Link>
+          <Link to='/register' className='text-center text-white bg-black rounded-md p-3'>S'inscrire</Link>
         </div>
       </div>
     </nav>
