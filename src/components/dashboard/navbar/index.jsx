@@ -23,7 +23,6 @@ const Navbar = () => {
         </div>
         
         <div className="flex flex-col">
-          {/* Label statique ou dynamique si tu as plusieurs workspaces */}
           <span className="text-[10px] text-gray-400 font-bold leading-none uppercase tracking-widest mb-1">
             Workspace
           </span>
@@ -36,7 +35,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Tu peux ajouter des éléments à droite ici (Profil, Notifications) */}
       <div className="flex items-center gap-4">
         <div className="h-8 w-8 rounded-full bg-[#633BBC] text-white flex items-center justify-center text-xs font-bold">
             JD

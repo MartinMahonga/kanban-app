@@ -18,7 +18,7 @@ const Stats = () => {
   const { projects, isLoading: projectsLoading } = useProjects();
   const allProjects = projects?.data || [];
 
-  // 1. On crée une liste de requêtes pour CHAQUE projet
+  // liste de requêtes pour CHAQUE projet
   const taskQueries = useQueries({
     queries: allProjects.map((project) => ({
       queryKey: ["tasks", project.id],
@@ -27,19 +27,18 @@ const Stats = () => {
     })),
   });
 
-  // 2. On vérifie si l'une des requêtes est encore en cours
+  // vérifie si l'une des requêtes est encore en cours
   const isTasksLoading = taskQueries.some((query) => query.isLoading);
 
-  // 3. On aplatit tous les résultats dans un seul tableau "allTasks"
+  // aplatit tous les résultats dans un seul tableau "allTasks"
   const allTasks = taskQueries
-    .filter((query) => query.data) // On ne garde que les requêtes réussies
-    .flatMap((query) => query.data.data); // On fusionne les tableaux de tâches
+    .filter((query) => query.data) // ne garde que les requêtes réussies
+    .flatMap((query) => query.data.data); // fusionne les tableaux de tâches
 
   if (projectsLoading || isTasksLoading) {
     return <Layout><div className="p-8">Chargement des statistiques globales...</div></Layout>;
   }
 
-  // --- Le reste de ta logique de filtrage reste la même ---
   const todo = allTasks.filter((t) => t.status === "todo");
   const doing = allTasks.filter((t) => t.status === "doing");
   const done = allTasks.filter((t) => t.status === "done");
@@ -162,7 +161,7 @@ const Stats = () => {
   );
 };
 
-// Composant StatCard optimisé
+// Composant StatCard
 const StatCard = ({ icon, label, value, color = "bg-gray-50" }) => (
   <div className="bg-white p-6 rounded-[28px] border border-gray-100 shadow-sm flex items-center gap-5 transition-all hover:shadow-md hover:-translate-y-1">
     <div className={`p-4 ${color} rounded-2xl flex items-center justify-center`}>

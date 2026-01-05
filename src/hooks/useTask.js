@@ -3,7 +3,7 @@ import { getTasks } from "@/api/tasks.api";
 import { useParams } from "react-router-dom";
 
 export const useTasks = () => {
-  // 1. Récupération de l'ID depuis l'URL
+  // Récupération de l'ID depuis l'URL
   const { projectId } = useParams();
 
   const {
@@ -11,13 +11,13 @@ export const useTasks = () => {
     isLoading,
     isError,
     error,
-    refetch // Utile pour forcer une mise à jour manuelle
+    refetch // force une mise à jour manuelle
   } = useQuery({
     queryKey: ["tasks", projectId],
     queryFn: () => getTasks(projectId),
-    // 2. Sécurité : ne lance la requête que si projectId existe
+    // ne lance la requête que si projectId existe
     enabled: !!projectId, 
-    // 3. Optionnel : garde les anciennes données pendant le chargement d'un nouvel ID
+    // garde les anciennes données pendant le chargement d'un nouvel ID
     placeholderData: (previousData) => previousData,
   });
 
