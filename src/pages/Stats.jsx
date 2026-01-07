@@ -1,10 +1,19 @@
 import { useProjects } from "../hooks/useProject";
 import Layout from "@/layout";
+import { ProjectSkeleton } from "@/components/ui";
 import { useQueries } from "@tanstack/react-query";
 import { getTasks } from "@/api/tasks.api";
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, PieChart, Pie, Cell,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 import {
   Layout as LayoutIcon,
@@ -12,7 +21,6 @@ import {
   Clock,
   AlertCircle,
 } from "lucide-react";
-
 
 const Stats = () => {
   const { projects, isLoading: projectsLoading } = useProjects();
@@ -36,7 +44,15 @@ const Stats = () => {
     .flatMap((query) => query.data.data); // fusionne les tableaux de tâches
 
   if (projectsLoading || isTasksLoading) {
-    return <Layout><div className="p-8">Chargement des statistiques globales...</div></Layout>;
+    return (
+      <Layout>
+        <div className="p-8">
+          <ProjectSkeleton />
+          <ProjectSkeleton />
+          <ProjectSkeleton />
+        </div>
+      </Layout>
+    );
   }
 
   const todo = allTasks.filter((t) => t.status === "todo");
@@ -44,9 +60,9 @@ const Stats = () => {
   const done = allTasks.filter((t) => t.status === "done");
 
   const status = [
-    { name: 'À faire', value: todo.length, color: '#9ca3af' },
-    { name: 'En cours', value: doing.length, color: '#fbbf24' },
-    { name: 'Terminé', value: done.length, color: '#10b981' },
+    { name: "À faire", value: todo.length, color: "#9ca3af" },
+    { name: "En cours", value: doing.length, color: "#fbbf24" },
+    { name: "Terminé", value: done.length, color: "#10b981" },
   ];
 
   const tasksByProject = allProjects.map((project, index) => ({
@@ -55,7 +71,7 @@ const Stats = () => {
   }));
 
   return (
-      <Layout>
+    <Layout>
       <div className="p-4 bg-gray-50/50 min-h-screen">
         <header className="mb-4">
           <h1 className="text-2xl font-bold text-gray-900">Analytics</h1>
@@ -90,10 +106,11 @@ const Stats = () => {
 
         {/* GRAPHIQUES */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
           {/* Graphique de répartition des tâches (Donut) */}
           <div className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
-            <h3 className="font-bold text-gray-800 mb-8 text-lg">État global des tâches</h3>
+            <h3 className="font-bold text-gray-800 mb-8 text-lg">
+              État global des tâches
+            </h3>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -105,11 +122,19 @@ const Stats = () => {
                     dataKey="value"
                   >
                     {status.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} stroke="none" />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={entry.color}
+                        stroke="none"
+                      />
                     ))}
                   </Pie>
-                  <Tooltip 
-                    contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)' }}
+                  <Tooltip
+                    contentStyle={{
+                      borderRadius: "16px",
+                      border: "none",
+                      boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1)",
+                    }}
                   />
                 </PieChart>
               </ResponsiveContainer>
@@ -117,7 +142,10 @@ const Stats = () => {
             <div className="flex justify-center gap-8 mt-4 text-[11px] font-bold uppercase tracking-wider text-gray-400">
               {status.map((d) => (
                 <div key={d.name} className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: d.color }}></div>
+                  <div
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: d.color }}
+                  ></div>
                   {d.name}
                 </div>
               ))}
@@ -126,35 +154,52 @@ const Stats = () => {
 
           {/* Graphique de charge par projet (Barres) */}
           <div className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
-            <h3 className="font-bold text-gray-800 mb-8 text-lg">Volume de tâches par projet</h3>
+            <h3 className="font-bold text-gray-800 mb-8 text-lg">
+              Volume de tâches par projet
+            </h3>
             <div className="h-72">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={tasksByProject} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
-                  <XAxis 
-                    dataKey="name" 
-                    axisLine={false} 
-                    tickLine={false} 
-                    fontSize={12} 
+                <BarChart
+                  data={tasksByProject}
+                  margin={{ top: 0, right: 0, left: -20, bottom: 0 }}
+                >
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    vertical={false}
+                    stroke="#f3f4f6"
+                  />
+                  <XAxis
+                    dataKey="name"
+                    axisLine={false}
+                    tickLine={false}
+                    fontSize={12}
                     tick={{ fill: "#9ca3af" }}
                     dy={10}
                   />
-                  <YAxis axisLine={false} tickLine={false} fontSize={12} tick={{ fill: "#9ca3af" }} />
+                  <YAxis
+                    axisLine={false}
+                    tickLine={false}
+                    fontSize={12}
+                    tick={{ fill: "#9ca3af" }}
+                  />
                   <Tooltip
                     cursor={{ fill: "#f9fafb" }}
-                    contentStyle={{ borderRadius: "12px", border: "none", boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1)" }}
+                    contentStyle={{
+                      borderRadius: "12px",
+                      border: "none",
+                      boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1)",
+                    }}
                   />
-                  <Bar 
-                    dataKey="count" 
-                    fill="#633BBC" 
-                    radius={[8, 8, 0, 0]} 
-                    barSize={32} 
+                  <Bar
+                    dataKey="count"
+                    fill="#633BBC"
+                    radius={[8, 8, 0, 0]}
+                    barSize={32}
                   />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </div>
-
         </div>
       </div>
     </Layout>
@@ -164,11 +209,15 @@ const Stats = () => {
 // Composant StatCard
 const StatCard = ({ icon, label, value, color = "bg-gray-50" }) => (
   <div className="bg-white p-6 rounded-[28px] border border-gray-100 shadow-sm flex items-center gap-5 transition-all hover:shadow-md hover:-translate-y-1">
-    <div className={`p-4 ${color} rounded-2xl flex items-center justify-center`}>
+    <div
+      className={`p-4 ${color} rounded-2xl flex items-center justify-center`}
+    >
       {icon}
     </div>
     <div>
-      <p className="text-xs font-bold text-gray-400 uppercase tracking-tight">{label}</p>
+      <p className="text-xs font-bold text-gray-400 uppercase tracking-tight">
+        {label}
+      </p>
       <p className="text-2xl font-black text-gray-900">{value}</p>
     </div>
   </div>

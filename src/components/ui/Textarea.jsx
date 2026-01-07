@@ -1,5 +1,5 @@
 export const Textarea = ({ label, ...props }) => (
-  <div className="flex flex-col gap-1.5 w-full">
+  <div className="flex flex-col gap-1.5 w-full mt-4">
     {label && <label className="text-sm font-semibold text-gray-700 ml-1">{label}</label>}
     <textarea
       {...props}
