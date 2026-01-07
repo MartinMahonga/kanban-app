@@ -122,6 +122,7 @@ const ProjectDashboard = () => {
             </div>
           }
         >
+          {/* Todo ajouter la fonction pour soumettre le formulaire en utilisant un onSubmit */}
           <form action="">
             <Input label="Nom" name="nom" placeholder="Nom de votre projet" />
             <Textarea
@@ -133,8 +134,7 @@ const ProjectDashboard = () => {
               <Button variant="secondary" onClick={() => setIsModalOpen(false)}>
                 Annuler
               </Button>
-              {/* Todo ajouter la fonction pour soumettre le formulaire */}
-              <Button variant="action" type="submit">Créer</Button>
+              <Button variant="action" type="submit">Créer le projet</Button>
             </div>
           </form>
         </Modal>
