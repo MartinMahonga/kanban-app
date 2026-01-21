@@ -137,7 +137,7 @@ const MobileNavbar = () => {
             )}
           >
             <LogOut className="h-4 w-4" />
-            <span className="text-[12px]">Logout</span>
+            <span className="text-[12px]">Se déconnecter</span>
           </button>
         </div>
       </div>

@@ -132,7 +132,7 @@ export default function Sidebar({
           )}
         >
           <LogOut className="h-4 w-4 flex-shrink-0" />
-          {!isCollapsed && "Log out"}
+          {!isCollapsed && "Se déconnecter"}
         </button>
       </div>
     </aside>
