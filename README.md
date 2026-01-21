@@ -1,10 +1,10 @@
-# KanbanFlow
+# Rudix
 
-Bienvenue sur le projet **KanbanFlow**, une application de gestion de projet collaborative inspirée de la méthodologie Kanban.
+Bienvenue sur le projet **Rudix**, une application de gestion de projet collaborative inspirée de la méthodologie Kanban.
 
 ## 📋 Présentation
 
-KanbanFlow permet aux équipes de visualiser leur travail, de maximiser l'efficacité et de s'améliorer continuellement. L'application offre une interface intuitive pour créer des projets, gérer des tâches par glisser-déposer, collaborer en temps réel et suivre la productivité.
+Rudix permet aux équipes de visualiser leur travail, de maximiser l'efficacité et de s'améliorer continuellement. L'application offre une interface intuitive pour créer des projets, gérer des tâches par glisser-déposer, collaborer en temps réel et suivre la productivité.
 
 ## ✨ Fonctionnalités Clés
 
