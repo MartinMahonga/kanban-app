@@ -100,7 +100,7 @@ export default function CreateTaskModal({
           <Button type="button" variant="ghost" onClick={onClose}>
             Annuler
           </Button>
-          <Button type="submit" isLoading={isLoading} className="bg-purple-600 hover:bg-purple-700">
+          <Button type="submit" isLoading={isLoading} className="bg-purple-600 shadow-sm hover:bg-purple-700">
             Créer une tache
           </Button>
         </div>

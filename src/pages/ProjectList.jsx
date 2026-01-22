@@ -234,7 +234,7 @@ export default function ProjectList() {
               <Button
                 type="submit"
                 isLoading={isSubmitting}
-                className="bg-purple-600 hover:bg-purple-700 text-white font-bold"
+                className="bg-purple-600 hover:bg-purple-700 shadow-sm text-white font-bold"
               >
                 Créer le projet
               </Button>
@@ -289,7 +289,7 @@ export default function ProjectList() {
 
         <Button
           onClick={handleOpenCreate}
-          className="bg-purple-600 hover:bg-purple-700 text-white md:flex hidden"
+          className="bg-purple-600 hover:bg-purple-700 shadow-sm text-white md:flex hidden"
         >
           <Plus className="h-4 w-4 mr-2" />
           <span className="font-medium">Créer un projet</span>
@@ -384,7 +384,7 @@ export default function ProjectList() {
             <Button
               type="submit"
               isLoading={isSubmitting}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-bold"
+              className="bg-purple-600 hover:bg-purple-700 shadow-sm text-white font-bold"
             >
               {editingProject ? "Mettre à jour" : "Créer le projet"}
             </Button>
@@ -417,7 +417,7 @@ export default function ProjectList() {
             <Button
               isLoading={isSubmitting}
               onClick={confirmDelete}
-              className="bg-red-600 hover:bg-red-700 text-white"
+              className="bg-red-600 hover:bg-red-700 shadow-sm text-white"
             >
               Oui, supprimer
             </Button>

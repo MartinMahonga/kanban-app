@@ -37,7 +37,7 @@ export default function EmptyState({ onCreateProject }) {
         className="bg-purple-600 hover:bg-purple-700 rounded-full text-white px-8 h-12 shadow-purple-100 hover:shadow-xl hover:-translate-y-0.5 transition-all"
       >
         <Plus className="mr-2 h-4 w-4" />
-        <span className="font-medium">Nouveau projet</span>
+        <span className="font-medium shadow-sm">Nouveau projet</span>
       </Button>
     </div>
   );
