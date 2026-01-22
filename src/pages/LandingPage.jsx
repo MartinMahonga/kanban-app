@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
@@ -8,6 +9,13 @@ import video from "../assets/Screencast from 2026-01-21 14-46-23.webm";
 
 export default function LandingPage() {
   const { user, loading } = useAuth();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 2.0;
+    }
+  }, []);
 
   if (loading) return null;
 
@@ -53,10 +61,24 @@ export default function LandingPage() {
         </div>
 
         {/* Mockup */}
-        <div className="w-full max-w-6xl bg-gray-100 shadow-2xl rounded-xl mt-16 mx-auto overflow-hidden">
-          <video width="100%" autoPlay muted loop>
-            <source src={video} type="video/webm"/>
-          </video>
+        <div className="w-full max-w-6xl mx-auto mt-16 relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+          <div className="relative rounded-xl bg-gray-900 shadow-2xl overflow-hidden ring-1 ring-white/10">
+            <div className="h-8 bg-gray-800 flex items-center px-4 gap-2 select-none">
+              <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+              <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+              <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+            </div>
+            <video 
+              ref={videoRef}
+              className="w-full block bg-gray-900" 
+              autoPlay 
+              muted 
+              loop
+            >
+              <source src={video} type="video/webm"/>
+            </video>
+          </div>
         </div>
       </section>
 
