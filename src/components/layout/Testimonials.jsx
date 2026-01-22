@@ -1,4 +1,5 @@
 import { Quote } from 'lucide-react';
+import yannick from '../../assets/yannick.jpeg';
 
 const testimonials = [
   {
@@ -17,10 +18,10 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Emmanuel Macron",
-    role: "Président de la France",
-    content: "Rudix incarne parfaitement la 'Start-up Nation'. Efficace, élégant et résolument tourné vers l'avenir de la collaboration.",
-    avatar: "https://cdnuploads.aa.com.tr/uploads/Contents/2025/12/25/thumbs_b_c_528adfdc91ced3d53c3921c4fc01988e.jpg?v=004350"
+    name: "Yannick Mabela",
+    role: "CEO de NextGen Tech",
+    content: "Rudix a transformé notre façon de collaborer. La plateforme est intuitive et puissante, ce qui nous permet de livrer nos projets plus rapidement et avec une meilleure qualité.",
+    avatar: yannick
   }
 ];
 
