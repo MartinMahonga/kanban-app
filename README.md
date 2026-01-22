@@ -47,14 +47,12 @@ Nous avons décomposé l'application en 5 modules majeurs :
 1.  **Cloner le dépôt**
     ```bash
     git clone <repository-url>
-    cd kanban-lab
+    cd kanban-app
     ```
 
 2.  **Installer les dépendances**
     ```bash
     npm install
-    # ou
-    yarn install
     ```
 
 3.  **Lancer le serveur de développement**
@@ -64,10 +62,3 @@ Nous avons décomposé l'application en 5 modules majeurs :
 
 4.  **Accéder à l'application**
     Ouvrez `http://localhost:5173` dans votre navigateur.
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues. Veuillez consulter les fichiers d'analyse pour comprendre l'architecture existante avant de proposer des modifications majeures.
-
----
-*Généré par l'assistant IA Google Deepmind.*
