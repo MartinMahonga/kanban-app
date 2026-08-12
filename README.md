@@ -62,3 +62,14 @@ Nous avons décomposé l'application en 5 modules majeurs :
 
 4.  **Accéder à l'application**
     Ouvrez `http://localhost:5173` dans votre navigateur.
+    
+5.  ## 👥 Équipe & Contributions
+Projet académique réalisé en équipe de 7 personnes.
+
+* **NTADI-MOUSSAYANDI Arsène-Val** : Conception UI/UX, développement full-stack et intégration API.
+* **Martin Mahonga** : Conception UI/UX, développement full-stack et intégration API.
+* **LOUKANOU Arsène Rich-Vie** : Co-développeur.
+* **NDZABA TCHIKAYA Promesse** : Co-développeuse.
+* **NTADI Juliana Pelcia** : Co-développeuse.
+* **ZABANGANGA Lod** : Co-développeur.
+* **BISSONA Ketia** : Co-développeuse.
