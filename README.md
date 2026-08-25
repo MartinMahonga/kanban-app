@@ -73,3 +73,4 @@ Projet académique réalisé en équipe de 7 personnes.
 * **NTADI Juliana Pelcia** : Co-développeuse.
 * **ZABANGANGA Lod** : Co-développeur.
 * **BISSONA Ketia** : Co-développeuse.
+* **Mabela cedric Yannick** : Co-développeur.
